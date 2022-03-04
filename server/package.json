@@ -6,7 +6,7 @@
   "author": "carole",
   "dependencies": {
     "apollo-server": "^3.1.1",
-    "graphql": "^15.5.1",
+    "graphql": "^16.3.0",
     "nexus": "^1.1.0"
   },
   "devDependencies": {
