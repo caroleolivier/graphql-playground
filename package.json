@@ -1,0 +1,13 @@
+{
+  "name": "graphql-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "carole",
+  "dependencies": {
+    "apollo-server": "^3.1.1",
+    "graphql": "^15.5.1",
+    "nexus": "^1.1.0",
+    "ts-node-dev": "^1.1.8"
+  }
+}
