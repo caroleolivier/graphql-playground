@@ -10,7 +10,7 @@ It uses [nexus](https://github.com/graphql-nexus/nexus)
 
 ### Todos
 
-- yarn upgrade --latest graphql
+- read about server side caching
 
 
 ## Client
@@ -20,3 +20,4 @@ It uses [nexus](https://github.com/graphql-nexus/nexus)
 
 - Notes about loading and batching: https://www.howtographql.com/advanced/1-server/
 - YouTube video about graphql mental model: https://youtu.be/zWhVAN4Tg6M
+- Doc about apollo client caching: https://www.apollographql.com/docs/react/caching/overview/

@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 const FEED_QUERY = gql`
-  query CanBeAnything {
+  query FeedQuery {
     feed {
       id
       url
@@ -10,7 +10,7 @@ const FEED_QUERY = gql`
   }
 `;
 
-export function Feed() {
+function Feed() {
   const { loading, error, data } = useQuery(FEED_QUERY);
 
   if (loading) {
@@ -26,4 +26,14 @@ export function Feed() {
       <p>{description}: {url} </p>
     </div>
   ));
+}
+
+export function FeedFeed() {
+  return (
+    <div>
+      <p>Call twice the same query with exact same name and arguments so uses cache</p>
+      <Feed />
+      <Feed />
+    </div>
+  )
 }

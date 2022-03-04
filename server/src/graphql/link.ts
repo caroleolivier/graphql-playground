@@ -34,6 +34,7 @@ export const LinkQuery = extendType({
 });
 
 function linkQueryResolver(parent: any, args: any, context: any, info: any) {
+  console.log("link resolver called")
   return links;
 }
 

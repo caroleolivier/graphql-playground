@@ -11,7 +11,8 @@ import { App } from './components/';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3099',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  connectToDevTools: true,
 });
 
 // client

@@ -2,6 +2,11 @@
 ### Do not make changes to this file directly
 
 
+type Author {
+  id: Int!
+  name: String!
+}
+
 type Link {
   description: String!
   id: Int!
@@ -14,5 +19,6 @@ type Mutation {
 }
 
 type Query {
+  author: [Author!]!
   feed: [Link!]!
 }

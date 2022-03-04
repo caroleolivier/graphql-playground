@@ -28,6 +28,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+  Author: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
   Link: { // root type
     description: string; // String!
     id: number; // Int!
@@ -48,6 +52,10 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
+  Author: { // field return type
+    id: number; // Int!
+    name: string; // String!
+  }
   Link: { // field return type
     description: string; // String!
     id: number; // Int!
@@ -58,11 +66,16 @@ export interface NexusGenFieldTypes {
     updateLink: Array<NexusGenRootTypes['Link'] | null>; // [Link]!
   }
   Query: { // field return type
+    author: NexusGenRootTypes['Author'][]; // [Author!]!
     feed: NexusGenRootTypes['Link'][]; // [Link!]!
   }
 }
 
 export interface NexusGenFieldTypeNames {
+  Author: { // field return type name
+    id: 'Int'
+    name: 'String'
+  }
   Link: { // field return type name
     description: 'String'
     id: 'Int'
@@ -73,6 +86,7 @@ export interface NexusGenFieldTypeNames {
     updateLink: 'Link'
   }
   Query: { // field return type name
+    author: 'Author'
     feed: 'Link'
   }
 }

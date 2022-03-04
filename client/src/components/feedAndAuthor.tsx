@@ -1,16 +1,20 @@
 import { gql, useQuery } from "@apollo/client";
 
 const FEED_QUERY = gql`
-  query CanBeAnything {
+  query FeedAuthorQuery {
     feed {
       id
-      url
       description
+      url
+    }
+    author {
+      id
+      name
     }
   }
 `;
 
-export function FeedClone() {
+export function FeedAndAuthor() {
   const { loading, error, data } = useQuery(FEED_QUERY);
 
   if (loading) {
@@ -21,9 +25,20 @@ export function FeedClone() {
     return <p>Error :(</p>;
   }
 
-  return data.feed.map(({ id, url, description }: any) => (
+  const feeds = data.feed.map(({ id, url, description }: any) => (
     <div key={id} >
       <p>{description}: {url} </p>
     </div>
   ));
+
+  const authors = data.author.map(({ id, name }: any) => (
+    <div key={id} >
+      <p>{name} </p>
+    </div>
+  ));
+
+  return <div>
+    {feeds}
+    {authors}
+  </div>;
 }
