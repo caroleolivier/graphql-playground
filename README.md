@@ -1,10 +1,19 @@
-# Graphql tutorial
+# Graphql Playground
 
-https://www.howtographql.com/typescript-apollo/1-getting-started/
+A place for me to learn and experiment with graphql
 
-## Todos
+## Server
+
+Server side developed with this guide: https://www.howtographql.com/typescript-apollo/1-getting-started/
+
+It uses [nexus](https://github.com/graphql-nexus/nexus)
+
+### Todos
 
 - yarn upgrade --latest graphql
+
+
+## Client
 
 
 ## Useful resources
