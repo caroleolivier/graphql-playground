@@ -19,3 +19,4 @@ It uses [nexus](https://github.com/graphql-nexus/nexus)
 ## Useful resources
 
 - Notes about loading and batching: https://www.howtographql.com/advanced/1-server/
+- YouTube video about graphql mental model: https://youtu.be/zWhVAN4Tg6M
