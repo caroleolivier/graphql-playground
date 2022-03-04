@@ -1,4 +1,4 @@
-import { extendType, objectType } from "nexus";
+import { extendType, intArg, nonNull, objectType, stringArg } from "nexus";
 import { NexusGenObjects } from "../../nexus-typegen";
 
 export const Link = objectType({
@@ -28,9 +28,71 @@ export const LinkQuery = extendType({
   definition(t) {
     t.nonNull.list.nonNull.field("feed", {
       type: "Link",
-      resolve(parent, args, context, info) {
-        return links;
-      },
+      resolve: linkQueryResolver,
     });
   },
 });
+
+function linkQueryResolver(parent: any, args: any, context: any, info: any) {
+  return links;
+}
+
+export const LinkMutation = extendType({
+  type: "Mutation",
+  definition(t) {
+    t.nonNull.field("postLink", {
+      type: "Link",
+      args: {
+        description: nonNull(stringArg()),
+        url: nonNull(stringArg()),
+      },
+
+      resolve: linkMutationResolver,
+    });
+  },
+});
+
+
+function linkMutationResolver(parent: any, args: any, context: any, info: any) {
+  const { description, url } = args;
+
+  let idCount = links.length + 1;
+  const link = {
+    id: idCount,
+    description: description,
+    url: url,
+  };
+  links.push(link);
+  return link;
+}
+
+export const LinkMutationUpdate = extendType({
+  type: "Mutation",
+  definition(t) {
+    t.nonNull.list.field("updateLink", {
+      type: "Link",
+      args: {
+        description: nonNull(stringArg()),
+        url: nonNull(stringArg()),
+        id: nonNull(intArg()),
+      },
+
+      resolve: linkMutationUpdateResolver,
+    });
+  },
+});
+
+function linkMutationUpdateResolver(parent: any, args: any, context: any, info: any) {
+  const { description, url, id } = args;
+
+  const link = links.find(l => l.id == id);
+
+  if (!link) {
+    throw Error('Not found sorry!');
+  }
+
+  link.description = description;
+  link.url = url;
+
+  return links;
+}
