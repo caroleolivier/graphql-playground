@@ -15,6 +15,7 @@ It uses [nexus](https://github.com/graphql-nexus/nexus)
 
 ## Client
 
+Client side developed with this guide: https://www.apollographql.com/docs/react/get-started/
 
 ## Useful resources
 
