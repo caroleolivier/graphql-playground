@@ -58,7 +58,7 @@ function FeedQuery2() {
 export function FeedFeedDiffQuery() {
   return (
     <div>
-      <p>Call twice same query with DIFF Args so does not use cache</p>
+      <p>Call twice same query with DIFF Args but at the same time so does not use cache</p>
       <FeedQuery1 />
       <FeedQuery2 />
     </div>
